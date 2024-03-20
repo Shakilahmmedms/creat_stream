@@ -65,6 +65,31 @@ ROOT_URLCONF = 'CareStream.urls'
 CORS_ORIGIN_ALLOW_ALL = True
 CSRF_TRUSTED_ORIGINS = ['https://creat-stream.onrender.com']
 
+CORS_ALLOWED_ORIGINS = [
+    'https://creat-stream.onrender.com',
+    'https://creat-stream.onrender.com',
+]
+
+
+# Allow cookies to be included in cross-origin requests
+CORS_ALLOW_CREDENTIALS = True
+
+# Specify allowed HTTP methods
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+# Specify allowed HTTP headers
+CORS_ALLOW_HEADERS = [
+    'Accept',
+    'Authorization',
+    'Content-Type',
+]
 
 
 TEMPLATES = [

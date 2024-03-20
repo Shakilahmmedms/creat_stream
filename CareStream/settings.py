@@ -28,6 +28,7 @@ SECRET_KEY = 'django-insecure-hsl*q=0^c#_58397-@t2_n3s5=l*@kr5o(q58rvk1d#%xt)k9y
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['https://creat-stream.onrender.com','https://*.127.0.0.1']
 
 
 # Application definition

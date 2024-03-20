@@ -59,6 +59,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'CareStream.urls'
+CORS_ORIGIN_ALLOW_ALL = True
+CSRF_TRUSTED_ORIGINS = ['https://creat-stream.onrender.com']
 
 TEMPLATES = [
     {

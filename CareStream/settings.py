@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'patient',
     'service',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [

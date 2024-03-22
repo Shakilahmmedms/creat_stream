@@ -61,22 +61,23 @@ def activate(request, uid64, token):
     
 class patientLoginApiView(APIView):
     def post(self, request):
-        seiralizer = seiralizers.LogoinSerializer(data= self.request.data)
+        serializer = seiralizers.LogoinSerializer(data = self.request.data)
+        if serializer.is_valid():
+            username = serializer.validated_data['username']
+            password = serializer.validated_data['password']
 
-        if seiralizer.is_valid():
-            username = seiralizer.validated_data['username']
-            password = seiralizer.validated_data['password']
-
-            user = authenticate(username = username, password = password)
-
-            if user:
-                token, _ = Token.objects.get_or_create(user = user)
-                login(request,user)
-                return Response({'token':token.key, 'user_id': user.id})
+            user = authenticate(username= username, password=password)
             
+            if user:
+                token, _ = Token.objects.get_or_create(user=user)
+                print(token)
+                print(_)
+                login(request, user)
+                return Response({'token' : token.key, 'user_id' : user.id})
             else:
-                return Response({'error':'Invalid Credential'})
-        return Response(seiralizer.errors)
+                return Response({'error' : "Invalid Credential"})
+        return Response(serializer.errors)
+
     
 
 class PatientLogoutApiView(APIView):
